@@ -10,16 +10,22 @@ function Form({ setTodos, todos }) {
   };
 
   const [todo, setTodo] = useState(initialState);
+  const [count, setCount] =useState(2)
   const onChangeHandler = (event) => {
     const { name, value } = event.target;
-    setTodo({ ...todo, [name]: value, id: todos.length + 1 });
+    setTodo({ ...todo, [name]: value, id: count });
   };
 
   const onSubmitHandler = (event) => {
     event.preventDefault();
     setTodos([...todos, todo]);
+    setCount(count+1)
     setTodo(initialState);
   };
+  console.log(todos)
+
+
+  
 
   return (
     <form onSubmit={onSubmitHandler} className="form-box">
@@ -28,7 +34,7 @@ function Form({ setTodos, todos }) {
         <input
           type="text"
           name="title"
-          value={todo.title} //???
+          value={todo.title} 
           className="input-title"
           onChange={onChangeHandler}
         />
@@ -44,7 +50,7 @@ function Form({ setTodos, todos }) {
       <button className="add-button">추가하기</button>
     </form>
   );
-}
+};
 
 export default Form;
 
