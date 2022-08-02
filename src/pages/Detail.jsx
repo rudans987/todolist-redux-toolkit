@@ -9,7 +9,7 @@ import {useSelector} from "react-redux";
 const Detail = ()=>{
     const navigate =useNavigate();
     const params = useParams(); 
-    const todo_list = useSelector((state)=>state.todos.list);
+    const todo_list = useSelector((state)=>state.list);
    
     const todo = todo_list.find(cur=>cur.id === Number(params.id))
     return(

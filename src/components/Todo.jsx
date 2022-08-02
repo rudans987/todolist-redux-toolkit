@@ -25,7 +25,7 @@ const Todo = ({ todo})=> {
         </DeleteButton>
         <CompleteButton
           onClick={() => {
-          dispatch(updateTodo(todo.id));
+          dispatch(updateTodo({id:todo.id, isDone:todo.isDone}));
         }}
         >
         {todo.isDone ? "취소" : "완료"}
